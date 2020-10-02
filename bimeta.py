@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #pylint: disable=function-redefined
 import click
 import os

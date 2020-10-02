@@ -3,5 +3,7 @@
 1. Install required libraries
 `pip install -r requirements.txt`
 2. Update configuration file (bimeta_config.toml) with your api key, host and port
-3. Run bimeta
-`python bimeta.py --help`
+3. Make bimeta.py executable
+`chmod +x bimeta.py`
+4. Run bimeta
+`./bimeta.py --help`
