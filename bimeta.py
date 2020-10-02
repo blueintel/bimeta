@@ -72,7 +72,7 @@ def get():
 
 
 @get.command()
-@click.option('--org', '-o', help='Get all users belonging to org', is_flag=True)
+@click.option('--org', '-o', help='Get all users belonging to org')
 @click.option('--email', '-e', help='Get information about user with the specified email')
 @click.option('--id', '-i', type=int, help='Get information about user with the specified id')
 def user(org, email, id):

@@ -52,9 +52,15 @@ def get_user(config, org, email, id):
         except grpc.RpcError as e:
             utils.print_grpc_errors(e)
             return
-    elif org != False:
+    elif org != None:
+        # validate org
+        org_id = utils.get_org_id_by_name(config, org)
+        if org_id == -1:
+            return
         # make request
-        request = recipient_pb2.ListRecipientsByOrgRequest()
+        request = recipient_pb2.ListRecipientsByOrgRequest(
+            org_id=org_id
+        )
         # send request
         try:
             users = stub.ListRecipients(request, metadata=[('biapikey', key)])
