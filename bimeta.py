@@ -3,6 +3,7 @@
 #pylint: disable=function-redefined
 import click
 import os
+import sys
 import conn
 
 #import commands
@@ -12,14 +13,14 @@ import set_commands
 import del_commands
 
 # global variables
-__config = f"{os.getcwd()}/bimeta_config.toml"   # config file location
+__config = f"{os.path.abspath(os.path.dirname(sys.argv[0]))}/bimeta_config.toml"
 
 # set up arguments for "app"
 
 
 @click.group()
 @click.option('--config', help="Filename of the configuration file. Default is\nbimeta_config.toml in the executable directory",
-              default=f"{os.getcwd()}/bimeta_config.toml")
+              default=__config)
 def cli(config):
     global __config
 
