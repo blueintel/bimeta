@@ -13,6 +13,8 @@ import recipient_pb2
 import recipient_pb2_grpc
 import github_pb2
 import github_pb2_grpc
+import badapicreds_pb2_grpc
+import badapicreds_pb2
 
 # pylint: disable=import-error
 import grpc
@@ -185,14 +187,34 @@ def get_github(config, org, begin, end, viewed):
     request = github_pb2.ListAlertsRequest(
         org=org,
         viewed=viewed,
-        startdate=from_tm.isoformat(),
-        enddate=to_tm.isoformat()
+        startdate=from_tm.strftime("%Y-%m-%d %H:%M:%S.%f"),
+        enddate=to_tm.strftime("%Y-%m-%d %H:%M:%S.%f")
     )
     utils.print_json(request)
     # send request
     try:
         response = stub.ListAlerts(request, metadata=[('biapikey', key)])
         for alert in response:
-            utils.print_json(alert.Alerts)
+            utils.print_json(alert)
+    except grpc.RpcError as e:
+        utils.print_grpc_errors(e)
+
+
+def get_emails(config, email, num):
+    # validate email
+
+    # open grpc channel
+    channel, key = conn.get_connection(config)
+    # connect to grpc stub
+    stub = badapicreds_pb2_grpc.CredentialServiceStub(channel)
+    # make request
+    request = badapicreds_pb2.ListEmailCredentialRequest(
+        email=email, maxResults=num)
+    # send request
+    try:
+        response = stub.ListEmailCredentials(
+            request, metadata=[('biapikey', key)])
+        for cred in response:
+            utils.print_json(cred)
     except grpc.RpcError as e:
         utils.print_grpc_errors(e)

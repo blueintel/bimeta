@@ -113,6 +113,15 @@ def github_alerts(org, start, end, viewed):
     get_commands.get_github(__config, org, start, end, viewed)
 
 
+@get.command()
+@click.option('--email', '-e', help='Email to search for', default=False)
+@click.option('--num', '-n', help='Maximum number of search results to return. Defaults to 10', default=10)
+def emailsearch(email, num):
+    """Search for creds matching email"""
+    global __config
+    get_commands.get_emails(__config, email, num)
+
+
 # Set up arguments for "GET" commands
 @cli.group()
 def set():

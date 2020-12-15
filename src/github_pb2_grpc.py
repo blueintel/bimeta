@@ -14,15 +14,10 @@ class GithubServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.ListRepos = channel.unary_stream(
-        '/blueintel.badapi.github.GithubService/ListRepos',
-        request_serializer=github__pb2.ListReposRequest.SerializeToString,
-        response_deserializer=github__pb2.ListReposResponse.FromString,
-        )
     self.ListAlerts = channel.unary_stream(
         '/blueintel.badapi.github.GithubService/ListAlerts',
         request_serializer=github__pb2.ListAlertsRequest.SerializeToString,
-        response_deserializer=github__pb2.ListAlertsResponse.FromString,
+        response_deserializer=github__pb2.Alert.FromString,
         )
 
 
@@ -30,16 +25,9 @@ class GithubServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def ListRepos(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
   def ListAlerts(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """rpc ListRepos(ListReposRequest) returns (stream ListReposResponse) {};
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -47,15 +35,10 @@ class GithubServiceServicer(object):
 
 def add_GithubServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'ListRepos': grpc.unary_stream_rpc_method_handler(
-          servicer.ListRepos,
-          request_deserializer=github__pb2.ListReposRequest.FromString,
-          response_serializer=github__pb2.ListReposResponse.SerializeToString,
-      ),
       'ListAlerts': grpc.unary_stream_rpc_method_handler(
           servicer.ListAlerts,
           request_deserializer=github__pb2.ListAlertsRequest.FromString,
-          response_serializer=github__pb2.ListAlertsResponse.SerializeToString,
+          response_serializer=github__pb2.Alert.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
