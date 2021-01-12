@@ -98,7 +98,8 @@ def get_config(config, org, name):
     except grpc.RpcError as e:
         utils.print_grpc_errors(e)
     else:
-        utils.print_json(response.bimeta_org_config)
+        print(response.bimeta_org_config.content)
+#        utils.print_json(response.bimeta_org_config)
 
 
 def get_tag(config, org, email):
