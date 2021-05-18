@@ -1,4 +1,4 @@
-click
-grpcio
-protobuf
-toml
+click===7.1.2
+grpcio==1.25.0
+protobuf==3.13.0
+toml==0.10.2

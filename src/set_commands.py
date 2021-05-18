@@ -7,10 +7,10 @@ import sys
 import utils
 
 # import grpc libraries
-import recipient_pb2
-import recipient_pb2_grpc
-import org_pb2
-import org_pb2_grpc
+from protobufs import recipient_pb2
+from protobufs import recipient_pb2_grpc
+from protobufs import org_pb2
+from protobufs import org_pb2_grpc
 # pylint: disable=import-error
 import grpc
 # pylint: enable=import-error

@@ -9,10 +9,10 @@ import grpc
 from google.protobuf.json_format import MessageToJson
 # pylint: enable=import-error
 # pylint: enable=import-error
-import org_pb2
-import org_pb2_grpc
-import recipient_pb2
-import recipient_pb2_grpc
+from protobufs import org_pb2
+from protobufs import org_pb2_grpc
+from protobufs import recipient_pb2
+from protobufs import recipient_pb2_grpc
 
 
 def print_grpc_errors(e):

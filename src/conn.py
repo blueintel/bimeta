@@ -6,8 +6,8 @@ import ssl
 def get_connection(configFile):
     config = toml.load(configFile)
     # set up connection parms
-    port = config["bimeta_client"]["ipPort"]
-    host = config["bimeta_client"]["ipAddr"]
+    port = config["bimeta_client"]["port"]
+    host = config["bimeta_client"]["host"]
     key = config["bimeta_client"]["apikey"]
     # get ssl cert for channel...
     cert = ssl.get_server_certificate((host, port))

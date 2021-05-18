@@ -7,14 +7,14 @@ import datetime
 import utils
 
 # import grpc libraries
-import org_pb2
-import org_pb2_grpc
-import recipient_pb2
-import recipient_pb2_grpc
-import github_pb2
-import github_pb2_grpc
-import badapicreds_pb2_grpc
-import badapicreds_pb2
+from protobufs import org_pb2
+from protobufs import org_pb2_grpc
+from protobufs import recipient_pb2
+from protobufs import recipient_pb2_grpc
+from protobufs import github_pb2
+from protobufs import github_pb2_grpc
+from protobufs import badapicreds_pb2_grpc
+from protobufs import badapicreds_pb2
 
 # pylint: disable=import-error
 import grpc

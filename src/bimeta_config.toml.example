@@ -1,0 +1,4 @@
+[bimeta_client]
+apikey = "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef"
+host = "bimeta.host.com"
+port = "3333"
