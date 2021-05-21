@@ -11,10 +11,10 @@ def get_connection(configFile):
     if main is None:
         print("Unable to find bimeta_client key in config file. Please see bimeta_config.toml.example")
         exit(1)
-    if not "port" in main:
+    if not "port" in main and not "ipPort" in main:
         print("Unable to find port entry in config file under bimeta_client. Please see bimeta_config.toml.example")
         exit(1)
-    if not "host" in main:
+    if not "host" in main and not "ipAddr" in main:
         print("Unable to find host entry in config file under bimeta_client. Please see bimeta_config.toml.example")
         exit(1)
     if not "apikey" in main:
@@ -22,8 +22,12 @@ def get_connection(configFile):
         exit(1)
 
     # set up connection parms
-    port = main["port"]
-    host = main["host"]
+    port = main.get("port")
+    if port is None:
+        port = main.get("ipPort")
+    host = main.get("host")
+    if host is None:
+        host = main.get("ipAddr")
     key = main["apikey"]
     # get ssl cert for channel...
     cert = ssl.get_server_certificate((host, port))
