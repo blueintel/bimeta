@@ -4,6 +4,8 @@
 import click
 import os
 import sys
+
+from click.types import DateTime
 import conn
 
 #import commands
@@ -120,6 +122,18 @@ def emailsearch(email, num):
     """Search for creds matching email"""
     global __config
     get_commands.get_emails(__config, email, num)
+
+
+@get.command()
+@click.option('--username', '-u', help='username to search for', required=False)
+@click.option('--fqdn', '-f', help='domain name to search for', required=False)
+@click.option('--num', '-n', help='Maximum number of search results to return. Defaults to 10', default=10)
+@click.option('--start', '-s', help='start date for search', required=False, type=click.DateTime(formats=['%Y-%m-%dT%H:%M:%S']))
+@click.option('--end', '-e', help='end date for search', required=False, type=click.DateTime(formats=['%Y-%m-%dT%H:%M:%S']))
+def credsearch(username, fqdn, num, start, end):
+    """Search for creds matching search terms"""
+    global __config
+    get_commands.get_creds(__config, username, fqdn, num, start, end)
 
 
 # Set up arguments for "GET" commands

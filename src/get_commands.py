@@ -219,3 +219,27 @@ def get_emails(config, email, num):
             utils.print_json(cred)
     except grpc.RpcError as e:
         utils.print_grpc_errors(e)
+
+
+def get_creds(config, username, fqdn, num, startdate, enddate):
+    # open grpc channel
+    channel, key = conn.get_connection(config)
+    # connect to grpc stub
+    stub = badapicreds_pb2_grpc.CredentialSearchServiceStub(channel)
+    # make request
+    start = ""
+    end = ""
+    if startdate != None:
+        start = startdate.isoformat()
+    if enddate != None:
+        end = enddate.isoformat()
+    request = badapicreds_pb2.SearchTerm(
+        username=username, fqdn=fqdn, maxResults=num, start=start, end=end)
+    # send request
+    try:
+        response = stub.ListCredentials(
+            request, metadata=[('biapikey', key)])
+        for cred in response:
+            utils.print_json(cred)
+    except grpc.RpcError as e:
+        utils.print_grpc_errors(e)
