@@ -230,9 +230,9 @@ def get_creds(config, username, fqdn, num, startdate, enddate):
     start = ""
     end = ""
     if startdate != None:
-        start = startdate.isoformat()
+        start = startdate.strftime("%Y-%m-%dT%H:%M:%SZ")
     if enddate != None:
-        end = enddate.isoformat()
+        end = enddate.strftime("%Y-%m-%dT%H:%M:%SZ")
     request = badapicreds_pb2.SearchTerm(
         username=username, fqdn=fqdn, maxResults=num, start=start, end=end)
     # send request

@@ -128,8 +128,8 @@ def emailsearch(email, num):
 @click.option('--username', '-u', help='username to search for', required=False)
 @click.option('--fqdn', '-f', help='domain name to search for', required=False)
 @click.option('--num', '-n', help='Maximum number of search results to return. Defaults to 10', default=10)
-@click.option('--start', '-s', help='start date for search', required=False, type=click.DateTime(formats=['%Y-%m-%dT%H:%M:%S']))
-@click.option('--end', '-e', help='end date for search', required=False, type=click.DateTime(formats=['%Y-%m-%dT%H:%M:%S']))
+@click.option('--start', '-s', help='start date for search', required=False, type=click.DateTime(formats=['%Y-%m-%dT%H:%M:%SZ']))
+@click.option('--end', '-e', help='end date for search', required=False, type=click.DateTime(formats=['%Y-%m-%dT%H:%M:%SZ']))
 def credsearch(username, fqdn, num, start, end):
     """Search for creds matching search terms"""
     global __config
