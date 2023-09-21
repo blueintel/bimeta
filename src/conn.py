@@ -29,10 +29,6 @@ def get_connection(configFile):
     if host is None:
         host = main.get("ipAddr")
     key = main["apikey"]
-    # get ssl cert for channel...
-    cert = ssl.get_server_certificate((host, port))
-    cert_bytes = bytes(cert, 'utf-8')
     # Uhura, open a channel
-    credentials = grpc.ssl_channel_credentials(cert_bytes)
-    channel = grpc.secure_channel('{}:{}'.format(host, port), credentials)
+    channel = grpc.secure_channel('{}:{}'.format(host, port), grpc.ssl_channel_credentials())
     return channel, key

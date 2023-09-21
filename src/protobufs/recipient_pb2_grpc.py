@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from protobufs import recipient_pb2 as recipient__pb2
+import recipient_pb2 as recipient__pb2
 
 
 class RecipientServiceStub(object):
@@ -15,55 +15,60 @@ class RecipientServiceStub(object):
             channel: A grpc.Channel.
         """
         self.CreateRecipient = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/CreateRecipient',
-            request_serializer=recipient__pb2.CreateRecipientRequest.SerializeToString,
-            response_deserializer=recipient__pb2.CreateRecipientResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/CreateRecipient',
+                request_serializer=recipient__pb2.CreateRecipientRequest.SerializeToString,
+                response_deserializer=recipient__pb2.CreateRecipientResponse.FromString,
+                )
         self.ReadRecipientByID = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/ReadRecipientByID',
-            request_serializer=recipient__pb2.ReadRecipientByIDRequest.SerializeToString,
-            response_deserializer=recipient__pb2.ReadRecipientResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/ReadRecipientByID',
+                request_serializer=recipient__pb2.ReadRecipientByIDRequest.SerializeToString,
+                response_deserializer=recipient__pb2.ReadRecipientResponse.FromString,
+                )
         self.ReadRecipientByEmail = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/ReadRecipientByEmail',
-            request_serializer=recipient__pb2.ReadRecipientByEmailRequest.SerializeToString,
-            response_deserializer=recipient__pb2.ReadRecipientResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/ReadRecipientByEmail',
+                request_serializer=recipient__pb2.ReadRecipientByEmailRequest.SerializeToString,
+                response_deserializer=recipient__pb2.ReadRecipientResponse.FromString,
+                )
         self.UpdateRecipient = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/UpdateRecipient',
-            request_serializer=recipient__pb2.UpdateRecipientRequest.SerializeToString,
-            response_deserializer=recipient__pb2.UpdateRecipientResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/UpdateRecipient',
+                request_serializer=recipient__pb2.UpdateRecipientRequest.SerializeToString,
+                response_deserializer=recipient__pb2.UpdateRecipientResponse.FromString,
+                )
         self.DeleteRecipientByID = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/DeleteRecipientByID',
-            request_serializer=recipient__pb2.DeleteRecipientByIDRequest.SerializeToString,
-            response_deserializer=recipient__pb2.RecipientEmpty.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/DeleteRecipientByID',
+                request_serializer=recipient__pb2.DeleteRecipientByIDRequest.SerializeToString,
+                response_deserializer=recipient__pb2.RecipientEmpty.FromString,
+                )
         self.DeleteRecipientByEmail = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/DeleteRecipientByEmail',
-            request_serializer=recipient__pb2.DeleteRecipientByEmailRequest.SerializeToString,
-            response_deserializer=recipient__pb2.RecipientEmpty.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/DeleteRecipientByEmail',
+                request_serializer=recipient__pb2.DeleteRecipientByEmailRequest.SerializeToString,
+                response_deserializer=recipient__pb2.RecipientEmpty.FromString,
+                )
         self.ListRecipients = channel.unary_stream(
-            '/blueintel.badapi.recipient.RecipientService/ListRecipients',
-            request_serializer=recipient__pb2.ListRecipientsByOrgRequest.SerializeToString,
-            response_deserializer=recipient__pb2.ListRecipientsResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/ListRecipients',
+                request_serializer=recipient__pb2.ListRecipientsByOrgRequest.SerializeToString,
+                response_deserializer=recipient__pb2.ListRecipientsResponse.FromString,
+                )
         self.CreateRecipientTag = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/CreateRecipientTag',
-            request_serializer=recipient__pb2.CreateRecipientTagRequest.SerializeToString,
-            response_deserializer=recipient__pb2.CreateRecipientTagResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/CreateRecipientTag',
+                request_serializer=recipient__pb2.CreateRecipientTagRequest.SerializeToString,
+                response_deserializer=recipient__pb2.CreateRecipientTagResponse.FromString,
+                )
         self.DeleteRecipientTag = channel.unary_unary(
-            '/blueintel.badapi.recipient.RecipientService/DeleteRecipientTag',
-            request_serializer=recipient__pb2.DeleteRecipientTagRequest.SerializeToString,
-            response_deserializer=recipient__pb2.RecipientTagEmpty.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/DeleteRecipientTag',
+                request_serializer=recipient__pb2.DeleteRecipientTagRequest.SerializeToString,
+                response_deserializer=recipient__pb2.RecipientTagEmpty.FromString,
+                )
         self.ListRecipientTag = channel.unary_stream(
-            '/blueintel.badapi.recipient.RecipientService/ListRecipientTag',
-            request_serializer=recipient__pb2.ListRecipientTagRequest.SerializeToString,
-            response_deserializer=recipient__pb2.ListRecipientTagResponse.FromString,
-        )
+                '/blueintel.badapi.recipient.RecipientService/ListRecipientTag',
+                request_serializer=recipient__pb2.ListRecipientTagRequest.SerializeToString,
+                response_deserializer=recipient__pb2.ListRecipientTagResponse.FromString,
+                )
+        self.ListRecipientsByDomain = channel.unary_stream(
+                '/blueintel.badapi.recipient.RecipientService/ListRecipientsByDomain',
+                request_serializer=recipient__pb2.ListRecipientsByDomainRequest.SerializeToString,
+                response_deserializer=recipient__pb2.ListRecipientsResponse.FromString,
+                )
 
 
 class RecipientServiceServicer(object):
@@ -139,236 +144,264 @@ class RecipientServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListRecipientsByDomain(self, request, context):
+        """ListRecipients lists all Recipients for a specific org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RecipientServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'CreateRecipient': grpc.unary_unary_rpc_method_handler(
-            servicer.CreateRecipient,
-            request_deserializer=recipient__pb2.CreateRecipientRequest.FromString,
-            response_serializer=recipient__pb2.CreateRecipientResponse.SerializeToString,
-        ),
-        'ReadRecipientByID': grpc.unary_unary_rpc_method_handler(
-            servicer.ReadRecipientByID,
-            request_deserializer=recipient__pb2.ReadRecipientByIDRequest.FromString,
-            response_serializer=recipient__pb2.ReadRecipientResponse.SerializeToString,
-        ),
-        'ReadRecipientByEmail': grpc.unary_unary_rpc_method_handler(
-            servicer.ReadRecipientByEmail,
-            request_deserializer=recipient__pb2.ReadRecipientByEmailRequest.FromString,
-            response_serializer=recipient__pb2.ReadRecipientResponse.SerializeToString,
-        ),
-        'UpdateRecipient': grpc.unary_unary_rpc_method_handler(
-            servicer.UpdateRecipient,
-            request_deserializer=recipient__pb2.UpdateRecipientRequest.FromString,
-            response_serializer=recipient__pb2.UpdateRecipientResponse.SerializeToString,
-        ),
-        'DeleteRecipientByID': grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteRecipientByID,
-            request_deserializer=recipient__pb2.DeleteRecipientByIDRequest.FromString,
-            response_serializer=recipient__pb2.RecipientEmpty.SerializeToString,
-        ),
-        'DeleteRecipientByEmail': grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteRecipientByEmail,
-            request_deserializer=recipient__pb2.DeleteRecipientByEmailRequest.FromString,
-            response_serializer=recipient__pb2.RecipientEmpty.SerializeToString,
-        ),
-        'ListRecipients': grpc.unary_stream_rpc_method_handler(
-            servicer.ListRecipients,
-            request_deserializer=recipient__pb2.ListRecipientsByOrgRequest.FromString,
-            response_serializer=recipient__pb2.ListRecipientsResponse.SerializeToString,
-        ),
-        'CreateRecipientTag': grpc.unary_unary_rpc_method_handler(
-            servicer.CreateRecipientTag,
-            request_deserializer=recipient__pb2.CreateRecipientTagRequest.FromString,
-            response_serializer=recipient__pb2.CreateRecipientTagResponse.SerializeToString,
-        ),
-        'DeleteRecipientTag': grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteRecipientTag,
-            request_deserializer=recipient__pb2.DeleteRecipientTagRequest.FromString,
-            response_serializer=recipient__pb2.RecipientTagEmpty.SerializeToString,
-        ),
-        'ListRecipientTag': grpc.unary_stream_rpc_method_handler(
-            servicer.ListRecipientTag,
-            request_deserializer=recipient__pb2.ListRecipientTagRequest.FromString,
-            response_serializer=recipient__pb2.ListRecipientTagResponse.SerializeToString,
-        ),
+            'CreateRecipient': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRecipient,
+                    request_deserializer=recipient__pb2.CreateRecipientRequest.FromString,
+                    response_serializer=recipient__pb2.CreateRecipientResponse.SerializeToString,
+            ),
+            'ReadRecipientByID': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadRecipientByID,
+                    request_deserializer=recipient__pb2.ReadRecipientByIDRequest.FromString,
+                    response_serializer=recipient__pb2.ReadRecipientResponse.SerializeToString,
+            ),
+            'ReadRecipientByEmail': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadRecipientByEmail,
+                    request_deserializer=recipient__pb2.ReadRecipientByEmailRequest.FromString,
+                    response_serializer=recipient__pb2.ReadRecipientResponse.SerializeToString,
+            ),
+            'UpdateRecipient': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRecipient,
+                    request_deserializer=recipient__pb2.UpdateRecipientRequest.FromString,
+                    response_serializer=recipient__pb2.UpdateRecipientResponse.SerializeToString,
+            ),
+            'DeleteRecipientByID': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRecipientByID,
+                    request_deserializer=recipient__pb2.DeleteRecipientByIDRequest.FromString,
+                    response_serializer=recipient__pb2.RecipientEmpty.SerializeToString,
+            ),
+            'DeleteRecipientByEmail': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRecipientByEmail,
+                    request_deserializer=recipient__pb2.DeleteRecipientByEmailRequest.FromString,
+                    response_serializer=recipient__pb2.RecipientEmpty.SerializeToString,
+            ),
+            'ListRecipients': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListRecipients,
+                    request_deserializer=recipient__pb2.ListRecipientsByOrgRequest.FromString,
+                    response_serializer=recipient__pb2.ListRecipientsResponse.SerializeToString,
+            ),
+            'CreateRecipientTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRecipientTag,
+                    request_deserializer=recipient__pb2.CreateRecipientTagRequest.FromString,
+                    response_serializer=recipient__pb2.CreateRecipientTagResponse.SerializeToString,
+            ),
+            'DeleteRecipientTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRecipientTag,
+                    request_deserializer=recipient__pb2.DeleteRecipientTagRequest.FromString,
+                    response_serializer=recipient__pb2.RecipientTagEmpty.SerializeToString,
+            ),
+            'ListRecipientTag': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListRecipientTag,
+                    request_deserializer=recipient__pb2.ListRecipientTagRequest.FromString,
+                    response_serializer=recipient__pb2.ListRecipientTagResponse.SerializeToString,
+            ),
+            'ListRecipientsByDomain': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListRecipientsByDomain,
+                    request_deserializer=recipient__pb2.ListRecipientsByDomainRequest.FromString,
+                    response_serializer=recipient__pb2.ListRecipientsResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'blueintel.badapi.recipient.RecipientService', rpc_method_handlers)
+            'blueintel.badapi.recipient.RecipientService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
+
  # This class is part of an EXPERIMENTAL API.
-
-
 class RecipientService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def CreateRecipient(request,
-                        target,
-                        options=(),
-                        channel_credentials=None,
-                        call_credentials=None,
-                        insecure=False,
-                        compression=None,
-                        wait_for_ready=None,
-                        timeout=None,
-                        metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/CreateRecipient',
-                                             recipient__pb2.CreateRecipientRequest.SerializeToString,
-                                             recipient__pb2.CreateRecipientResponse.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.CreateRecipientRequest.SerializeToString,
+            recipient__pb2.CreateRecipientResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ReadRecipientByID(request,
-                          target,
-                          options=(),
-                          channel_credentials=None,
-                          call_credentials=None,
-                          insecure=False,
-                          compression=None,
-                          wait_for_ready=None,
-                          timeout=None,
-                          metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/ReadRecipientByID',
-                                             recipient__pb2.ReadRecipientByIDRequest.SerializeToString,
-                                             recipient__pb2.ReadRecipientResponse.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.ReadRecipientByIDRequest.SerializeToString,
+            recipient__pb2.ReadRecipientResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ReadRecipientByEmail(request,
-                             target,
-                             options=(),
-                             channel_credentials=None,
-                             call_credentials=None,
-                             insecure=False,
-                             compression=None,
-                             wait_for_ready=None,
-                             timeout=None,
-                             metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/ReadRecipientByEmail',
-                                             recipient__pb2.ReadRecipientByEmailRequest.SerializeToString,
-                                             recipient__pb2.ReadRecipientResponse.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.ReadRecipientByEmailRequest.SerializeToString,
+            recipient__pb2.ReadRecipientResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def UpdateRecipient(request,
-                        target,
-                        options=(),
-                        channel_credentials=None,
-                        call_credentials=None,
-                        insecure=False,
-                        compression=None,
-                        wait_for_ready=None,
-                        timeout=None,
-                        metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/UpdateRecipient',
-                                             recipient__pb2.UpdateRecipientRequest.SerializeToString,
-                                             recipient__pb2.UpdateRecipientResponse.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.UpdateRecipientRequest.SerializeToString,
+            recipient__pb2.UpdateRecipientResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def DeleteRecipientByID(request,
-                            target,
-                            options=(),
-                            channel_credentials=None,
-                            call_credentials=None,
-                            insecure=False,
-                            compression=None,
-                            wait_for_ready=None,
-                            timeout=None,
-                            metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/DeleteRecipientByID',
-                                             recipient__pb2.DeleteRecipientByIDRequest.SerializeToString,
-                                             recipient__pb2.RecipientEmpty.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.DeleteRecipientByIDRequest.SerializeToString,
+            recipient__pb2.RecipientEmpty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def DeleteRecipientByEmail(request,
-                               target,
-                               options=(),
-                               channel_credentials=None,
-                               call_credentials=None,
-                               insecure=False,
-                               compression=None,
-                               wait_for_ready=None,
-                               timeout=None,
-                               metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/DeleteRecipientByEmail',
-                                             recipient__pb2.DeleteRecipientByEmailRequest.SerializeToString,
-                                             recipient__pb2.RecipientEmpty.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.DeleteRecipientByEmailRequest.SerializeToString,
+            recipient__pb2.RecipientEmpty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListRecipients(request,
-                       target,
-                       options=(),
-                       channel_credentials=None,
-                       call_credentials=None,
-                       insecure=False,
-                       compression=None,
-                       wait_for_ready=None,
-                       timeout=None,
-                       metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.recipient.RecipientService/ListRecipients',
-                                              recipient__pb2.ListRecipientsByOrgRequest.SerializeToString,
-                                              recipient__pb2.ListRecipientsResponse.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.ListRecipientsByOrgRequest.SerializeToString,
+            recipient__pb2.ListRecipientsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def CreateRecipientTag(request,
-                           target,
-                           options=(),
-                           channel_credentials=None,
-                           call_credentials=None,
-                           insecure=False,
-                           compression=None,
-                           wait_for_ready=None,
-                           timeout=None,
-                           metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/CreateRecipientTag',
-                                             recipient__pb2.CreateRecipientTagRequest.SerializeToString,
-                                             recipient__pb2.CreateRecipientTagResponse.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.CreateRecipientTagRequest.SerializeToString,
+            recipient__pb2.CreateRecipientTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def DeleteRecipientTag(request,
-                           target,
-                           options=(),
-                           channel_credentials=None,
-                           call_credentials=None,
-                           insecure=False,
-                           compression=None,
-                           wait_for_ready=None,
-                           timeout=None,
-                           metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_unary(request, target, '/blueintel.badapi.recipient.RecipientService/DeleteRecipientTag',
-                                             recipient__pb2.DeleteRecipientTagRequest.SerializeToString,
-                                             recipient__pb2.RecipientTagEmpty.FromString,
-                                             options, channel_credentials,
-                                             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.DeleteRecipientTagRequest.SerializeToString,
+            recipient__pb2.RecipientTagEmpty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListRecipientTag(request,
-                         target,
-                         options=(),
-                         channel_credentials=None,
-                         call_credentials=None,
-                         insecure=False,
-                         compression=None,
-                         wait_for_ready=None,
-                         timeout=None,
-                         metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.recipient.RecipientService/ListRecipientTag',
-                                              recipient__pb2.ListRecipientTagRequest.SerializeToString,
-                                              recipient__pb2.ListRecipientTagResponse.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            recipient__pb2.ListRecipientTagRequest.SerializeToString,
+            recipient__pb2.ListRecipientTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRecipientsByDomain(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.recipient.RecipientService/ListRecipientsByDomain',
+            recipient__pb2.ListRecipientsByDomainRequest.SerializeToString,
+            recipient__pb2.ListRecipientsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

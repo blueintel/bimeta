@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from protobufs import badapicreds_pb2 as badapicreds__pb2
+import badapicreds_pb2 as badapicreds__pb2
 
 
 class CredentialServiceStub(object):
@@ -15,15 +15,15 @@ class CredentialServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListEmailCredentials = channel.unary_stream(
-            '/blueintel.badapi.badapicreds.CredentialService/ListEmailCredentials',
-            request_serializer=badapicreds__pb2.ListEmailCredentialRequest.SerializeToString,
-            response_deserializer=badapicreds__pb2.EmailCredential.FromString,
-        )
+                '/blueintel.badapi.badapicreds.CredentialService/ListEmailCredentials',
+                request_serializer=badapicreds__pb2.ListEmailCredentialRequest.SerializeToString,
+                response_deserializer=badapicreds__pb2.EmailCredential.FromString,
+                )
         self.BatchListEmailCredentials = channel.unary_stream(
-            '/blueintel.badapi.badapicreds.CredentialService/BatchListEmailCredentials',
-            request_serializer=badapicreds__pb2.BatchEmailCredentialRequest.SerializeToString,
-            response_deserializer=badapicreds__pb2.EmailCredential.FromString,
-        )
+                '/blueintel.badapi.badapicreds.CredentialService/BatchListEmailCredentials',
+                request_serializer=badapicreds__pb2.BatchEmailCredentialRequest.SerializeToString,
+                response_deserializer=badapicreds__pb2.EmailCredential.FromString,
+                )
 
 
 class CredentialServiceServicer(object):
@@ -44,60 +44,59 @@ class CredentialServiceServicer(object):
 
 def add_CredentialServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'ListEmailCredentials': grpc.unary_stream_rpc_method_handler(
-            servicer.ListEmailCredentials,
-            request_deserializer=badapicreds__pb2.ListEmailCredentialRequest.FromString,
-            response_serializer=badapicreds__pb2.EmailCredential.SerializeToString,
-        ),
-        'BatchListEmailCredentials': grpc.unary_stream_rpc_method_handler(
-            servicer.BatchListEmailCredentials,
-            request_deserializer=badapicreds__pb2.BatchEmailCredentialRequest.FromString,
-            response_serializer=badapicreds__pb2.EmailCredential.SerializeToString,
-        ),
+            'ListEmailCredentials': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListEmailCredentials,
+                    request_deserializer=badapicreds__pb2.ListEmailCredentialRequest.FromString,
+                    response_serializer=badapicreds__pb2.EmailCredential.SerializeToString,
+            ),
+            'BatchListEmailCredentials': grpc.unary_stream_rpc_method_handler(
+                    servicer.BatchListEmailCredentials,
+                    request_deserializer=badapicreds__pb2.BatchEmailCredentialRequest.FromString,
+                    response_serializer=badapicreds__pb2.EmailCredential.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'blueintel.badapi.badapicreds.CredentialService', rpc_method_handlers)
+            'blueintel.badapi.badapicreds.CredentialService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
+
  # This class is part of an EXPERIMENTAL API.
-
-
 class CredentialService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def ListEmailCredentials(request,
-                             target,
-                             options=(),
-                             channel_credentials=None,
-                             call_credentials=None,
-                             insecure=False,
-                             compression=None,
-                             wait_for_ready=None,
-                             timeout=None,
-                             metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.badapicreds.CredentialService/ListEmailCredentials',
-                                              badapicreds__pb2.ListEmailCredentialRequest.SerializeToString,
-                                              badapicreds__pb2.EmailCredential.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            badapicreds__pb2.ListEmailCredentialRequest.SerializeToString,
+            badapicreds__pb2.EmailCredential.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def BatchListEmailCredentials(request,
-                                  target,
-                                  options=(),
-                                  channel_credentials=None,
-                                  call_credentials=None,
-                                  insecure=False,
-                                  compression=None,
-                                  wait_for_ready=None,
-                                  timeout=None,
-                                  metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.badapicreds.CredentialService/BatchListEmailCredentials',
-                                              badapicreds__pb2.BatchEmailCredentialRequest.SerializeToString,
-                                              badapicreds__pb2.EmailCredential.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            badapicreds__pb2.BatchEmailCredentialRequest.SerializeToString,
+            badapicreds__pb2.EmailCredential.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class CredentialSearchServiceStub(object):
@@ -110,15 +109,15 @@ class CredentialSearchServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListCredentials = channel.unary_stream(
-            '/blueintel.badapi.badapicreds.CredentialSearchService/ListCredentials',
-            request_serializer=badapicreds__pb2.SearchTerm.SerializeToString,
-            response_deserializer=badapicreds__pb2.Credential.FromString,
-        )
+                '/blueintel.badapi.badapicreds.CredentialSearchService/ListCredentials',
+                request_serializer=badapicreds__pb2.SearchTerm.SerializeToString,
+                response_deserializer=badapicreds__pb2.Credential.FromString,
+                )
         self.ListDumps = channel.unary_stream(
-            '/blueintel.badapi.badapicreds.CredentialSearchService/ListDumps',
-            request_serializer=badapicreds__pb2.SourceSearchTerms.SerializeToString,
-            response_deserializer=badapicreds__pb2.Source.FromString,
-        )
+                '/blueintel.badapi.badapicreds.CredentialSearchService/ListDumps',
+                request_serializer=badapicreds__pb2.SourceSearchTerms.SerializeToString,
+                response_deserializer=badapicreds__pb2.Source.FromString,
+                )
 
 
 class CredentialSearchServiceServicer(object):
@@ -139,60 +138,59 @@ class CredentialSearchServiceServicer(object):
 
 def add_CredentialSearchServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'ListCredentials': grpc.unary_stream_rpc_method_handler(
-            servicer.ListCredentials,
-            request_deserializer=badapicreds__pb2.SearchTerm.FromString,
-            response_serializer=badapicreds__pb2.Credential.SerializeToString,
-        ),
-        'ListDumps': grpc.unary_stream_rpc_method_handler(
-            servicer.ListDumps,
-            request_deserializer=badapicreds__pb2.SourceSearchTerms.FromString,
-            response_serializer=badapicreds__pb2.Source.SerializeToString,
-        ),
+            'ListCredentials': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListCredentials,
+                    request_deserializer=badapicreds__pb2.SearchTerm.FromString,
+                    response_serializer=badapicreds__pb2.Credential.SerializeToString,
+            ),
+            'ListDumps': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListDumps,
+                    request_deserializer=badapicreds__pb2.SourceSearchTerms.FromString,
+                    response_serializer=badapicreds__pb2.Source.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'blueintel.badapi.badapicreds.CredentialSearchService', rpc_method_handlers)
+            'blueintel.badapi.badapicreds.CredentialSearchService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
+
  # This class is part of an EXPERIMENTAL API.
-
-
 class CredentialSearchService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def ListCredentials(request,
-                        target,
-                        options=(),
-                        channel_credentials=None,
-                        call_credentials=None,
-                        insecure=False,
-                        compression=None,
-                        wait_for_ready=None,
-                        timeout=None,
-                        metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.badapicreds.CredentialSearchService/ListCredentials',
-                                              badapicreds__pb2.SearchTerm.SerializeToString,
-                                              badapicreds__pb2.Credential.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            badapicreds__pb2.SearchTerm.SerializeToString,
+            badapicreds__pb2.Credential.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListDumps(request,
-                  target,
-                  options=(),
-                  channel_credentials=None,
-                  call_credentials=None,
-                  insecure=False,
-                  compression=None,
-                  wait_for_ready=None,
-                  timeout=None,
-                  metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.badapicreds.CredentialSearchService/ListDumps',
-                                              badapicreds__pb2.SourceSearchTerms.SerializeToString,
-                                              badapicreds__pb2.Source.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            badapicreds__pb2.SourceSearchTerms.SerializeToString,
+            badapicreds__pb2.Source.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class UASSearchServiceStub(object):
@@ -205,10 +203,10 @@ class UASSearchServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListUASCredentials = channel.unary_stream(
-            '/blueintel.badapi.badapicreds.UASSearchService/ListUASCredentials',
-            request_serializer=badapicreds__pb2.UASSearchTerm.SerializeToString,
-            response_deserializer=badapicreds__pb2.UASCredential.FromString,
-        )
+                '/blueintel.badapi.badapicreds.UASSearchService/ListUASCredentials',
+                request_serializer=badapicreds__pb2.UASSearchTerm.SerializeToString,
+                response_deserializer=badapicreds__pb2.UASCredential.FromString,
+                )
 
 
 class UASSearchServiceServicer(object):
@@ -223,38 +221,37 @@ class UASSearchServiceServicer(object):
 
 def add_UASSearchServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'ListUASCredentials': grpc.unary_stream_rpc_method_handler(
-            servicer.ListUASCredentials,
-            request_deserializer=badapicreds__pb2.UASSearchTerm.FromString,
-            response_serializer=badapicreds__pb2.UASCredential.SerializeToString,
-        ),
+            'ListUASCredentials': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListUASCredentials,
+                    request_deserializer=badapicreds__pb2.UASSearchTerm.FromString,
+                    response_serializer=badapicreds__pb2.UASCredential.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'blueintel.badapi.badapicreds.UASSearchService', rpc_method_handlers)
+            'blueintel.badapi.badapicreds.UASSearchService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
+
  # This class is part of an EXPERIMENTAL API.
-
-
 class UASSearchService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def ListUASCredentials(request,
-                           target,
-                           options=(),
-                           channel_credentials=None,
-                           call_credentials=None,
-                           insecure=False,
-                           compression=None,
-                           wait_for_ready=None,
-                           timeout=None,
-                           metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.badapicreds.UASSearchService/ListUASCredentials',
-                                              badapicreds__pb2.UASSearchTerm.SerializeToString,
-                                              badapicreds__pb2.UASCredential.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            badapicreds__pb2.UASSearchTerm.SerializeToString,
+            badapicreds__pb2.UASCredential.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
 class S3SearchServiceStub(object):
@@ -267,10 +264,10 @@ class S3SearchServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListS3Files = channel.unary_stream(
-            '/blueintel.badapi.badapicreds.S3SearchService/ListS3Files',
-            request_serializer=badapicreds__pb2.S3SearchTerm.SerializeToString,
-            response_deserializer=badapicreds__pb2.S3File.FromString,
-        )
+                '/blueintel.badapi.badapicreds.S3SearchService/ListS3Files',
+                request_serializer=badapicreds__pb2.S3SearchTerm.SerializeToString,
+                response_deserializer=badapicreds__pb2.S3File.FromString,
+                )
 
 
 class S3SearchServiceServicer(object):
@@ -285,35 +282,34 @@ class S3SearchServiceServicer(object):
 
 def add_S3SearchServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'ListS3Files': grpc.unary_stream_rpc_method_handler(
-            servicer.ListS3Files,
-            request_deserializer=badapicreds__pb2.S3SearchTerm.FromString,
-            response_serializer=badapicreds__pb2.S3File.SerializeToString,
-        ),
+            'ListS3Files': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListS3Files,
+                    request_deserializer=badapicreds__pb2.S3SearchTerm.FromString,
+                    response_serializer=badapicreds__pb2.S3File.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'blueintel.badapi.badapicreds.S3SearchService', rpc_method_handlers)
+            'blueintel.badapi.badapicreds.S3SearchService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
+
  # This class is part of an EXPERIMENTAL API.
-
-
 class S3SearchService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def ListS3Files(request,
-                    target,
-                    options=(),
-                    channel_credentials=None,
-                    call_credentials=None,
-                    insecure=False,
-                    compression=None,
-                    wait_for_ready=None,
-                    timeout=None,
-                    metadata=None):
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
         return grpc.experimental.unary_stream(request, target, '/blueintel.badapi.badapicreds.S3SearchService/ListS3Files',
-                                              badapicreds__pb2.S3SearchTerm.SerializeToString,
-                                              badapicreds__pb2.S3File.FromString,
-                                              options, channel_credentials,
-                                              insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            badapicreds__pb2.S3SearchTerm.SerializeToString,
+            badapicreds__pb2.S3File.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

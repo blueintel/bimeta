@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\r.;recipientpb',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0frecipient.proto\x12\x1a\x62lueintel.badapi.recipient\"\x10\n\x0eRecipientEmpty\"\x13\n\x11RecipientTagEmpty\"\xd5\x01\n\tRecipient\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x16\n\x0erecipient_name\x18\x02 \x01(\t\x12\x0e\n\x06org_id\x18\x03 \x01(\x03\x12\r\n\x05title\x18\x04 \x01(\t\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\x11\n\tclearance\x18\x06 \x01(\t\x12\x11\n\twatermark\x18\x07 \x01(\t\x12\x12\n\ncreated_at\x18\x08 \x01(\x03\x12\x13\n\x0bmodified_at\x18\t \x01(\x03\x12\x12\n\ncreated_by\x18\n \x01(\x03\x12\x13\n\x0bmodified_by\x18\x0b \x01(\x03\"U\n\x0cRecipientTag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x14\n\x0crecipient_id\x18\x02 \x01(\x03\x12\x10\n\x08tag_name\x18\x03 \x01(\t\x12\x11\n\ttag_value\x18\x04 \x01(\t\"R\n\x16\x43reateRecipientRequest\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"S\n\x17\x43reateRecipientResponse\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"0\n\x18ReadRecipientByIDRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\",\n\x1bReadRecipientByEmailRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\"Q\n\x15ReadRecipientResponse\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"\xb7\x01\n\x16UpdateRecipientRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\x12U\n\nupdate_map\x18\x02 \x03(\x0b\x32\x41.blueintel.badapi.recipient.UpdateRecipientRequest.UpdateMapEntry\x1a\x30\n\x0eUpdateMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"/\n\x17UpdateRecipientResponse\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\"2\n\x1a\x44\x65leteRecipientByIDRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\".\n\x1d\x44\x65leteRecipientByEmailRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\",\n\x1aListRecipientsByOrgRequest\x12\x0e\n\x06org_id\x18\x01 \x01(\x03\"R\n\x16ListRecipientsResponse\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"\\\n\x19\x43reateRecipientTagRequest\x12?\n\rrecipient_tag\x18\x01 \x01(\x0b\x32(.blueintel.badapi.recipient.RecipientTag\"]\n\x1a\x43reateRecipientTagResponse\x12?\n\rrecipient_tag\x18\x01 \x01(\x0b\x32(.blueintel.badapi.recipient.RecipientTag\"C\n\x19\x44\x65leteRecipientTagRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\x12\x10\n\x08tag_name\x18\x02 \x01(\t\"/\n\x17ListRecipientTagRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\"[\n\x18ListRecipientTagResponse\x12?\n\rrecipient_tag\x18\x01 \x01(\x0b\x32(.blueintel.badapi.recipient.RecipientTag2\xa3\n\n\x10RecipientService\x12|\n\x0f\x43reateRecipient\x12\x32.blueintel.badapi.recipient.CreateRecipientRequest\x1a\x33.blueintel.badapi.recipient.CreateRecipientResponse\"\x00\x12~\n\x11ReadRecipientByID\x12\x34.blueintel.badapi.recipient.ReadRecipientByIDRequest\x1a\x31.blueintel.badapi.recipient.ReadRecipientResponse\"\x00\x12\x84\x01\n\x14ReadRecipientByEmail\x12\x37.blueintel.badapi.recipient.ReadRecipientByEmailRequest\x1a\x31.blueintel.badapi.recipient.ReadRecipientResponse\"\x00\x12|\n\x0fUpdateRecipient\x12\x32.blueintel.badapi.recipient.UpdateRecipientRequest\x1a\x33.blueintel.badapi.recipient.UpdateRecipientResponse\"\x00\x12{\n\x13\x44\x65leteRecipientByID\x12\x36.blueintel.badapi.recipient.DeleteRecipientByIDRequest\x1a*.blueintel.badapi.recipient.RecipientEmpty\"\x00\x12\x81\x01\n\x16\x44\x65leteRecipientByEmail\x12\x39.blueintel.badapi.recipient.DeleteRecipientByEmailRequest\x1a*.blueintel.badapi.recipient.RecipientEmpty\"\x00\x12\x80\x01\n\x0eListRecipients\x12\x36.blueintel.badapi.recipient.ListRecipientsByOrgRequest\x1a\x32.blueintel.badapi.recipient.ListRecipientsResponse\"\x00\x30\x01\x12\x85\x01\n\x12\x43reateRecipientTag\x12\x35.blueintel.badapi.recipient.CreateRecipientTagRequest\x1a\x36.blueintel.badapi.recipient.CreateRecipientTagResponse\"\x00\x12|\n\x12\x44\x65leteRecipientTag\x12\x35.blueintel.badapi.recipient.DeleteRecipientTagRequest\x1a-.blueintel.badapi.recipient.RecipientTagEmpty\"\x00\x12\x81\x01\n\x10ListRecipientTag\x12\x33.blueintel.badapi.recipient.ListRecipientTagRequest\x1a\x34.blueintel.badapi.recipient.ListRecipientTagResponse\"\x00\x30\x01\x42\x0fZ\r.;recipientpbb\x06proto3'
+  serialized_pb=b'\n\x0frecipient.proto\x12\x1a\x62lueintel.badapi.recipient\"\x10\n\x0eRecipientEmpty\"\x13\n\x11RecipientTagEmpty\"\xd5\x01\n\tRecipient\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x16\n\x0erecipient_name\x18\x02 \x01(\t\x12\x0e\n\x06org_id\x18\x03 \x01(\x03\x12\r\n\x05title\x18\x04 \x01(\t\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\x11\n\tclearance\x18\x06 \x01(\t\x12\x11\n\twatermark\x18\x07 \x01(\t\x12\x12\n\ncreated_at\x18\x08 \x01(\x03\x12\x13\n\x0bmodified_at\x18\t \x01(\x03\x12\x12\n\ncreated_by\x18\n \x01(\x03\x12\x13\n\x0bmodified_by\x18\x0b \x01(\x03\"U\n\x0cRecipientTag\x12\n\n\x02id\x18\x01 \x01(\x03\x12\x14\n\x0crecipient_id\x18\x02 \x01(\x03\x12\x10\n\x08tag_name\x18\x03 \x01(\t\x12\x11\n\ttag_value\x18\x04 \x01(\t\"R\n\x16\x43reateRecipientRequest\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"S\n\x17\x43reateRecipientResponse\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"0\n\x18ReadRecipientByIDRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\",\n\x1bReadRecipientByEmailRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\"Q\n\x15ReadRecipientResponse\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"\xb7\x01\n\x16UpdateRecipientRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\x12U\n\nupdate_map\x18\x02 \x03(\x0b\x32\x41.blueintel.badapi.recipient.UpdateRecipientRequest.UpdateMapEntry\x1a\x30\n\x0eUpdateMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"/\n\x17UpdateRecipientResponse\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\"2\n\x1a\x44\x65leteRecipientByIDRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\".\n\x1d\x44\x65leteRecipientByEmailRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\",\n\x1aListRecipientsByOrgRequest\x12\x0e\n\x06org_id\x18\x01 \x01(\x03\"/\n\x1dListRecipientsByDomainRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\"R\n\x16ListRecipientsResponse\x12\x38\n\trecipient\x18\x01 \x01(\x0b\x32%.blueintel.badapi.recipient.Recipient\"\\\n\x19\x43reateRecipientTagRequest\x12?\n\rrecipient_tag\x18\x01 \x01(\x0b\x32(.blueintel.badapi.recipient.RecipientTag\"]\n\x1a\x43reateRecipientTagResponse\x12?\n\rrecipient_tag\x18\x01 \x01(\x0b\x32(.blueintel.badapi.recipient.RecipientTag\"C\n\x19\x44\x65leteRecipientTagRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\x12\x10\n\x08tag_name\x18\x02 \x01(\t\"/\n\x17ListRecipientTagRequest\x12\x14\n\x0crecipient_id\x18\x01 \x01(\x03\"[\n\x18ListRecipientTagResponse\x12?\n\rrecipient_tag\x18\x01 \x01(\x0b\x32(.blueintel.badapi.recipient.RecipientTag2\xb1\x0b\n\x10RecipientService\x12|\n\x0f\x43reateRecipient\x12\x32.blueintel.badapi.recipient.CreateRecipientRequest\x1a\x33.blueintel.badapi.recipient.CreateRecipientResponse\"\x00\x12~\n\x11ReadRecipientByID\x12\x34.blueintel.badapi.recipient.ReadRecipientByIDRequest\x1a\x31.blueintel.badapi.recipient.ReadRecipientResponse\"\x00\x12\x84\x01\n\x14ReadRecipientByEmail\x12\x37.blueintel.badapi.recipient.ReadRecipientByEmailRequest\x1a\x31.blueintel.badapi.recipient.ReadRecipientResponse\"\x00\x12|\n\x0fUpdateRecipient\x12\x32.blueintel.badapi.recipient.UpdateRecipientRequest\x1a\x33.blueintel.badapi.recipient.UpdateRecipientResponse\"\x00\x12{\n\x13\x44\x65leteRecipientByID\x12\x36.blueintel.badapi.recipient.DeleteRecipientByIDRequest\x1a*.blueintel.badapi.recipient.RecipientEmpty\"\x00\x12\x81\x01\n\x16\x44\x65leteRecipientByEmail\x12\x39.blueintel.badapi.recipient.DeleteRecipientByEmailRequest\x1a*.blueintel.badapi.recipient.RecipientEmpty\"\x00\x12\x80\x01\n\x0eListRecipients\x12\x36.blueintel.badapi.recipient.ListRecipientsByOrgRequest\x1a\x32.blueintel.badapi.recipient.ListRecipientsResponse\"\x00\x30\x01\x12\x85\x01\n\x12\x43reateRecipientTag\x12\x35.blueintel.badapi.recipient.CreateRecipientTagRequest\x1a\x36.blueintel.badapi.recipient.CreateRecipientTagResponse\"\x00\x12|\n\x12\x44\x65leteRecipientTag\x12\x35.blueintel.badapi.recipient.DeleteRecipientTagRequest\x1a-.blueintel.badapi.recipient.RecipientTagEmpty\"\x00\x12\x81\x01\n\x10ListRecipientTag\x12\x33.blueintel.badapi.recipient.ListRecipientTagRequest\x1a\x34.blueintel.badapi.recipient.ListRecipientTagResponse\"\x00\x30\x01\x12\x8b\x01\n\x16ListRecipientsByDomain\x12\x39.blueintel.badapi.recipient.ListRecipientsByDomainRequest\x1a\x32.blueintel.badapi.recipient.ListRecipientsResponse\"\x00\x30\x01\x42\x0fZ\r.;recipientpbb\x06proto3'
 )
 
 
@@ -595,6 +595,38 @@ _LISTRECIPIENTSBYORGREQUEST = _descriptor.Descriptor(
 )
 
 
+_LISTRECIPIENTSBYDOMAINREQUEST = _descriptor.Descriptor(
+  name='ListRecipientsByDomainRequest',
+  full_name='blueintel.badapi.recipient.ListRecipientsByDomainRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='domain', full_name='blueintel.badapi.recipient.ListRecipientsByDomainRequest.domain', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1118,
+  serialized_end=1165,
+)
+
+
 _LISTRECIPIENTSRESPONSE = _descriptor.Descriptor(
   name='ListRecipientsResponse',
   full_name='blueintel.badapi.recipient.ListRecipientsResponse',
@@ -622,8 +654,8 @@ _LISTRECIPIENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1118,
-  serialized_end=1200,
+  serialized_start=1167,
+  serialized_end=1249,
 )
 
 
@@ -654,8 +686,8 @@ _CREATERECIPIENTTAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1202,
-  serialized_end=1294,
+  serialized_start=1251,
+  serialized_end=1343,
 )
 
 
@@ -686,8 +718,8 @@ _CREATERECIPIENTTAGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1296,
-  serialized_end=1389,
+  serialized_start=1345,
+  serialized_end=1438,
 )
 
 
@@ -725,8 +757,8 @@ _DELETERECIPIENTTAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1391,
-  serialized_end=1458,
+  serialized_start=1440,
+  serialized_end=1507,
 )
 
 
@@ -757,8 +789,8 @@ _LISTRECIPIENTTAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1460,
-  serialized_end=1507,
+  serialized_start=1509,
+  serialized_end=1556,
 )
 
 
@@ -789,8 +821,8 @@ _LISTRECIPIENTTAGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1509,
-  serialized_end=1600,
+  serialized_start=1558,
+  serialized_end=1649,
 )
 
 _CREATERECIPIENTREQUEST.fields_by_name['recipient'].message_type = _RECIPIENT
@@ -816,6 +848,7 @@ DESCRIPTOR.message_types_by_name['UpdateRecipientResponse'] = _UPDATERECIPIENTRE
 DESCRIPTOR.message_types_by_name['DeleteRecipientByIDRequest'] = _DELETERECIPIENTBYIDREQUEST
 DESCRIPTOR.message_types_by_name['DeleteRecipientByEmailRequest'] = _DELETERECIPIENTBYEMAILREQUEST
 DESCRIPTOR.message_types_by_name['ListRecipientsByOrgRequest'] = _LISTRECIPIENTSBYORGREQUEST
+DESCRIPTOR.message_types_by_name['ListRecipientsByDomainRequest'] = _LISTRECIPIENTSBYDOMAINREQUEST
 DESCRIPTOR.message_types_by_name['ListRecipientsResponse'] = _LISTRECIPIENTSRESPONSE
 DESCRIPTOR.message_types_by_name['CreateRecipientTagRequest'] = _CREATERECIPIENTTAGREQUEST
 DESCRIPTOR.message_types_by_name['CreateRecipientTagResponse'] = _CREATERECIPIENTTAGRESPONSE
@@ -930,6 +963,13 @@ ListRecipientsByOrgRequest = _reflection.GeneratedProtocolMessageType('ListRecip
   })
 _sym_db.RegisterMessage(ListRecipientsByOrgRequest)
 
+ListRecipientsByDomainRequest = _reflection.GeneratedProtocolMessageType('ListRecipientsByDomainRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRECIPIENTSBYDOMAINREQUEST,
+  '__module__' : 'recipient_pb2'
+  # @@protoc_insertion_point(class_scope:blueintel.badapi.recipient.ListRecipientsByDomainRequest)
+  })
+_sym_db.RegisterMessage(ListRecipientsByDomainRequest)
+
 ListRecipientsResponse = _reflection.GeneratedProtocolMessageType('ListRecipientsResponse', (_message.Message,), {
   'DESCRIPTOR' : _LISTRECIPIENTSRESPONSE,
   '__module__' : 'recipient_pb2'
@@ -983,8 +1023,8 @@ _RECIPIENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1603,
-  serialized_end=2918,
+  serialized_start=1652,
+  serialized_end=3109,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateRecipient',
@@ -1083,6 +1123,16 @@ _RECIPIENTSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTRECIPIENTTAGREQUEST,
     output_type=_LISTRECIPIENTTAGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListRecipientsByDomain',
+    full_name='blueintel.badapi.recipient.RecipientService.ListRecipientsByDomain',
+    index=10,
+    containing_service=None,
+    input_type=_LISTRECIPIENTSBYDOMAINREQUEST,
+    output_type=_LISTRECIPIENTSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

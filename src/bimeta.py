@@ -8,6 +8,9 @@ import sys
 from click.types import DateTime
 import conn
 
+import sys
+sys.path.append("protobufs")
+
 #import commands
 import get_commands
 import put_commands
